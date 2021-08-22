@@ -110,9 +110,9 @@ def test_add_tasks_and_credits_exhausted():
 
 
 def test_global_metrics():
-    response = client.get("/global_metrics")
+    response = client.get("/metrics")
     assert response.status_code == 403
-    response = client.get("/global_metrics", headers={"X-Token": "super_admin"})
+    response = client.get("/metrics", headers={"X-Token": "super_admin"})
     assert response.status_code == 200
     assert response.json() == {'nb_of_objects': TEST_USER_INFOS_2["credits"] + 1, 'nb_of_users': 1}
 

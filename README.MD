@@ -28,6 +28,21 @@ The tests cover the following cases :
 Launch the server using 
 `python3 main.py`
 
+#### REST API for user management access by admin
+1. POST `/users` `{"username":"username", "password":"password", "credits":10}`
+2. PATCH `/users/<username>` `{"username":"username", "credits":10}`
+3. DELETE `/users/<username>`
+4. GET `/users/<username>`
+5. GET `/users`
+6. GET `/metrics`
+7. GET `/top_metrics`
+8. GET `/metrics/<username>`
+
+#### REST API for regular users
+
+1. GET `/metrics/<username>`
+2. POST `/tasks` `{"completed" : false}`
+
 
 ## Implementation details
 

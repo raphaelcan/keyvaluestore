@@ -105,7 +105,7 @@ def my_metrics(username: Optional[str], x_token: Optional[str] = Header(None)):
     return {"remaining_credits": user.credits - len(user.get_tasks()), "credits": user.credits}
 
 
-@app.get("/global_metrics")
+@app.get("/metrics")
 def global_metrics(x_token: Optional[str] = Header(None)):
     if x_token != "super_admin":
         return JSONResponse(content={"msg": "You do not have the permission to access this ressource"}, status_code=403)
